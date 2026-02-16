@@ -16,15 +16,13 @@ dp = Dispatcher()
 @dp.message()
 async def on_message(msg: Message):
     if msg.text and msg.text.lower() in ("/start", "start"):
-        kb = InlineKeyboardMarkup(
-            inline_keyboard=[[
-                InlineKeyboardButton(
-                    text="🔥❄️ Открыть WebApp",
-                    web_app=WebAppInfo(url=WEBAPP_URL)
-                )
-            ]]
-        )
-        await msg.answer("Нажми кнопку, чтобы запустить приложение:", reply_markup=kb)
+        kb = InlineKeyboardMarkup(inline_keyboard=[[
+            InlineKeyboardButton(
+                text="🔥❄️ Открыть AI",
+                web_app=WebAppInfo(url=WEBAPP_URL)
+            )
+        ]])
+        await msg.answer("Нажми кнопку, чтобы запустить WebApp:", reply_markup=kb)
         return
 
     await msg.answer("Напиши /start — дам кнопку запуска WebApp ✅")
