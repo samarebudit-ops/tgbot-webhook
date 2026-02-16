@@ -5,13 +5,12 @@ import httpx
 
 from aiogram import Bot, Dispatcher
 from aiogram.types import Update, Message
+from config import OPENROUTER_API_KEY, OPENROUTER_MODEL_TEXT, OPENROUTER_MODEL_VISION
 
 # --- ENV ---
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-MODEL_TEXT = os.getenv("OPENROUTER_MODEL_TEXT", "x-ai/grok-2")
-MODEL_VISION = os.getenv("OPENROUTER_MODEL_VISION", MODEL_TEXT)
-
+MODEL_TEXT = OPENROUTER_MODEL_TEXT
+MODEL_VISION = OPENROUTER_MODEL_VISION
 if not BOT_TOKEN:
     raise RuntimeError("BOT_TOKEN env var is required")
 
